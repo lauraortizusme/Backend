@@ -4,7 +4,8 @@ import {
     getCompetitor,
     addCompetitor,
     initCompetitors,
-    updateCompetitor
+    updateCompetitor,
+    deleteCompetitor
 } from '../controllers/competitorController.js';
 
 const router = express.Router();
@@ -17,6 +18,8 @@ router.get('/:id', getCompetitor);
 
 // POST /api/competitors/create - Crear un competidor
 router.post('/create', addCompetitor);
+
+router.delete('/:id', deleteCompetitor);
 
 // POST /api/competitors/seed - Inicializar competidores
 router.post('/seed', initCompetitors);

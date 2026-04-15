@@ -6,7 +6,8 @@ import {
   getStatistics,
   checkVote,
   getVote,
-  removeVote
+  removeVote,
+  deleteAllVotes
 } from '../controllers/voteController.js';
 
 const router = express.Router();
@@ -25,8 +26,12 @@ router.get('/check/:documento', checkVote);
 
 // GET /api/vote/:id - Obtener un voto específico
 router.get('/:id', getVote);
+//eliminar todos los votos
+router.delete('/deleteAll', deleteAllVotes);
 
 // DELETE /api/vote/:id - Eliminar un voto (soft delete)
 router.delete('/:id', removeVote);
+
+
 
 export default router;

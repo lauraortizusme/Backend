@@ -150,6 +150,14 @@ export async function getVote(req, res) {
         res.status(500).json({ message: error.message });
     }
 }
+ export async function deleteAllVotes(req, res) {
+    try {
+        await Vote.deleteMany({});
+        res.status(200).json({ message: "Todos los votos han sido eliminados" });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
 
 export async function removeVote(req, res) {
     const { id } = req.params;
